@@ -17,10 +17,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - run: chmod +x mvnw
-        working-directory: aegira-loan-service
-      - run: ./mvnw clean test
-        working-directory: aegira-loan-service
+      - run: mvn clean test
 
   frontend-test:
     runs-on: [self-hosted, docker-local]
