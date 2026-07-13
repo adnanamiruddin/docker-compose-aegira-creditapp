@@ -48,6 +48,6 @@ jobs:
       - name: Deploy Application
         run: |
           docker compose up -d --build
-      - name: Verifikasi Container
+      - name: Container Verification
         run: |
           docker ps

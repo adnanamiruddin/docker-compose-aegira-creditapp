@@ -1,0 +1,13 @@
+services:
+  runner:
+    image: myoung34/github-runner:latest
+    container_name: aegira-creditapp-github-runner
+    environment:
+      REPO_URL: https://github.com/adnanamiruddin/docker-compose-aegira-creditapp
+      RUNNER_NAME: aegira-creditapp-runner
+      RUNNER_TOKEN: A3CYHBDUC3RKAH7E76O3L5TKKRDM2
+      LABELS: docker-local
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./runner-data:/runner/data
+    restart: unless-stopped
