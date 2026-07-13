@@ -29,7 +29,7 @@ services:
     image: adnanamiruddin/aegira-loan-service-backend:latest
     # build:
     #   context: ./aegira-loan-service
-    # container_name: aegira-loan-service-backend
+    container_name: aegira-loan-service-backend
     depends_on:
       postgres:
         condition: service_healthy
@@ -53,7 +53,7 @@ services:
     image: adnanamiruddin/creditapp-frontend:latest
     # build:
     #   context: ./creditappdemo
-    # container_name: creditappdemo-frontend
+    container_name: creditappdemo-frontend
     depends_on:
       - backend
     ports:

@@ -97,7 +97,7 @@ jobs:
       - name: Deploy Application
         run: |
           docker compose pull
-          docker compose down --remove-orphans
+          docker compose down
           docker compose up -d
       - name: Verify Running Containers
         run: |
