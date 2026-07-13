@@ -94,11 +94,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Pull Latest Images
+      - name: Deploy Application
         run: |
-          docker compose -f docker-compose-deploy.yml pull
-      - name: Deploy Containers
-        run: |
-          docker compose -f docker-compose-deploy.yml up -d --remove-orphans
+          docker compose down --remove-orphans
+          docker compose pull
+          docker compose up -d --wait
       - name: Verify Running Containers
-        run: docker ps
+        run: |
+          docker compose ps
