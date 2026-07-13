@@ -38,16 +38,16 @@ jobs:
       - run: npm run build
 
   deploy:
-      runs-on: [self-hosted, Linux]
-      needs:
-        - backend-test
-        - frontend-test
-      steps:
-        - name: Checkout Repository
-          uses: actions/checkout@v4
-        - name: Deploy Aplikasi
-          run: |
-            docker compose up -d --build
-        - name: Verifikasi Container
-          run: |
-            docker ps
+    runs-on: [self-hosted, Linux]
+    needs:
+      - backend-test
+      - frontend-test
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Deploy Application
+        run: |
+          docker compose up -d --build
+      - name: Verifikasi Container
+        run: |
+          docker ps
