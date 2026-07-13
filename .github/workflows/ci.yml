@@ -96,9 +96,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Deploy Application
         run: |
-          docker compose down --remove-orphans
           docker compose pull
-          docker compose up -d --wait
+          docker compose down --remove-orphans
+          docker compose up -d
       - name: Verify Running Containers
         run: |
           docker compose ps
